@@ -21,9 +21,11 @@ public class ReadFileBufferedReader {
         //define a BufferedReader object to globally
         // access it with null value and close it in finally block
         BufferedReader bufferedReader = null;
+        //define a FileReader object to globally
+        FileReader fileReader = null;
 
         try {
-            FileReader fileReader = new FileReader(file);
+            fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
             // Read a line from the file
             String line = bufferedReader.readLine();
@@ -40,6 +42,7 @@ public class ReadFileBufferedReader {
         } finally {
             try {
                 bufferedReader.close();
+                fileReader.close();
             } catch (IOException e) {
                 System.out.println("Unable to close the file");
             }
